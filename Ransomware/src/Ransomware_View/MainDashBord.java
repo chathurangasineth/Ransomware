@@ -5,7 +5,12 @@
  */
 package Ransomware_View;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashSet;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +23,20 @@ public class MainDashBord extends javax.swing.JFrame {
      */
     public MainDashBord() {
         initComponents();
+        setLocationRelativeTo(null);
+        
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener( new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent e)
+            {
+                JFrame frame = (JFrame)e.getSource();
+                Toolkit.getDefaultToolkit().beep();
+                int result = JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit the application?", "Exit Application", JOptionPane.YES_NO_OPTION);
+                if (result == JOptionPane.YES_OPTION)
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            }
+        });
     }
 
     /**
@@ -145,18 +164,21 @@ public class MainDashBord extends javax.swing.JFrame {
     private void encryptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encryptBtnActionPerformed
         // TODO add your handling code here:
         
-        this.dispose();
-        Encrypt sh = new Encrypt ();
-        sh.setVisible(true);
+        FileChooser fileChooser = new FileChooser("ENCRYPT");
+        fileChooser.setVisible(true);
+        setVisible(false);
+        dispose();
+        
         
         
     }//GEN-LAST:event_encryptBtnActionPerformed
 
     private void decryptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decryptBtnActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        Decrypt sh = new Decrypt ();
-        sh.setVisible(true);
+       FileChooser fileChooser = new FileChooser("DECRYPT");
+        fileChooser.setVisible(true);
+        setVisible(false);
+        dispose();
     }//GEN-LAST:event_decryptBtnActionPerformed
 
     private void aboutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBTNActionPerformed
