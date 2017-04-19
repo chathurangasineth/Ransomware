@@ -8,7 +8,7 @@ First we need some tools to run this application.
   java jdk 5 or above
   Netbeans 7.1 or above
   
-After the installing the that mentioned softwares download my ransomeware folder and put it into the netbeans project folder.(C:\Users\chathuranga\Documents\NetBeansProjects) 
+After the installing the that mentioned softwares download my ransomeware.zip folder and put it into the netbeans project folder.(C:\Users\chathuranga\Documents\NetBeansProjects) After that unzip the file.
 
 After that open netbeans and select the Ransomware application.
   go to the Ransomware_view package ---> MainDashBord.java right click and run it.
